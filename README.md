@@ -56,6 +56,7 @@ SUPABASE_URL=your_supabase_url
 SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
 SUPABASE_ANON_KEY=your_anon_key
 RESEND_API_KEY=your_resend_api_key
+RESEND_TEMPLATE_ID=7a725c27-ba1e-4537-a9f3-50dbafbe1756
 ```
 
 4. Set up the database:
@@ -98,7 +99,8 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 | `SUPABASE_URL` | Your Supabase project URL | Yes |
 | `SUPABASE_SERVICE_ROLE_KEY` | Supabase service role key | Yes |
 | `SUPABASE_ANON_KEY` | Supabase anonymous key | Yes |
-| `RESEND_API_KEY` | Resend API key for emails | No |
+| `RESEND_API_KEY` | Resend API key for welcome emails | No |
+| `RESEND_TEMPLATE_ID` | Resend published template ID for waitlist welcome email | No (required to send email) |
 
 ## Deployment
 
@@ -123,13 +125,9 @@ The project can be deployed to any platform that supports Next.js:
 ## Database Setup
 
 1. Create a Supabase project
-2. Run the migration SQL file in the Supabase SQL Editor:
-
-   ```sql
-   -- See supabase_waitlist_migration.sql
-   ```
-
-3. Configure RLS policies as defined in the migration
+2. Run the initial waitlist migration in the Supabase SQL Editor: `supabase_waitlist_migration.sql`
+3. For GDPR consent fields (terms accepted, version, timestamp, IP, user agent), run: `docs/waitlist_consent_migration.sql`
+4. Configure RLS policies as defined in the migrations
 
 ## API Endpoints
 
@@ -141,10 +139,13 @@ Join the early access waitlist.
 ```json
 {
   "email": "user@example.com",
-  "alias": "John_Sneakers", // optional
-  "language": "en" // or "pt"
+  "alias": "John_Sneakers",
+  "language": "en",
+  "termsAccepted": true,
+  "termsVersion": "v1-2026-02-16"
 }
 ```
+`termsAccepted` and `termsVersion` are required. The API returns 400 if consent is missing or invalid.
 
 **Response:**
 ```json
