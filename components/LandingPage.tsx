@@ -19,8 +19,19 @@ function FootprintSVG({ className }: { className?: string }) {
   );
 }
 
+function getBrowserLocale(): Locale {
+  if (typeof window === "undefined") return "pt";
+  
+  const browserLang = navigator.language || (navigator.languages && navigator.languages[0]) || "pt";
+  const langCode = browserLang.toLowerCase().split("-")[0];
+  
+  // Default to Portuguese, only use English if browser explicitly requests non-Portuguese
+  return langCode === "pt" ? "pt" : "en";
+}
+
 export function LandingPage() {
-  const [locale, setLocale] = useState<Locale>("en");
+  // Always start with "pt" to match server-side rendering and prevent hydration mismatch
+  const [locale, setLocale] = useState<Locale>("pt");
   const [modalOpen, setModalOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const t = translations[locale];
@@ -30,6 +41,12 @@ export function LandingPage() {
     setMenuOpen(false);
   }, []);
   const closeModal = useCallback(() => setModalOpen(false), []);
+
+  // Detect browser language after hydration to avoid mismatch
+  useEffect(() => {
+    const detectedLocale = getBrowserLocale();
+    setLocale(detectedLocale);
+  }, []);
 
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
