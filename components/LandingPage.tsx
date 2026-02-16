@@ -638,6 +638,10 @@ export function LandingPage() {
             <div>
               <strong className="text-navy">SoleMate</strong>{" "}
               <span className="text-[rgba(12,15,20,.62)]">— {t.footer.tagline}</span>
+              <span className="ml-2 text-[rgba(12,15,20,.55)]">·</span>
+              <a href="/terms" className="ml-2 underline hover:text-brand">{t.footer.terms}</a>
+              <span className="mx-1 text-[rgba(12,15,20,.55)]">·</span>
+              <a href="/privacy" className="underline hover:text-brand">{t.footer.privacy}</a>
             </div>
             <div className="text-[rgba(12,15,20,.62)]">
               {t.footer.note}
@@ -654,6 +658,8 @@ export function LandingPage() {
   );
 }
 
+const TERMS_VERSION = "v1-2026-02-16";
+
 function Modal({
   onClose,
   t,
@@ -665,6 +671,7 @@ function Modal({
 }) {
   const [email, setEmail] = useState("");
   const [alias, setAlias] = useState("");
+  const [termsAccepted, setTermsAccepted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -694,6 +701,8 @@ function Modal({
           email,
           alias: alias.trim() || null,
           language: locale,
+          termsAccepted: true,
+          termsVersion: TERMS_VERSION,
         }),
       });
 
@@ -824,6 +833,30 @@ function Modal({
                   {t.aliasHelper}
                 </p>
               </div>
+              <div className="flex items-start gap-3">
+                <input
+                  id="terms"
+                  type="checkbox"
+                  required
+                  disabled={isSubmitting}
+                  checked={termsAccepted}
+                  onChange={(e) => setTermsAccepted(e.target.checked)}
+                  className="mt-1 h-4 w-4 shrink-0 rounded border-[rgba(15,23,42,.2)] text-brand focus:ring-2 focus:ring-brand focus:ring-offset-0 disabled:opacity-50"
+                  aria-describedby="terms-helper"
+                />
+                <label id="terms-helper" htmlFor="terms" className="text-xs font-semibold text-[rgba(12,15,20,.78)]">
+                  {t.termsConsentPrefix}
+                  <a href="/terms" target="_blank" rel="noopener noreferrer" className="underline hover:text-brand">
+                    {t.termsLink}
+                  </a>
+                  {" "}
+                  {t.termsConsentAnd}{" "}
+                  <a href="/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:text-brand">
+                    {t.privacyLink}
+                  </a>
+                  {t.termsConsentSuffix}
+                </label>
+              </div>
             </div>
           </div>
           <div className="flex justify-end gap-2.5 border-t border-[rgba(15,23,42,.10)] bg-white px-4 py-3.5">
@@ -837,7 +870,7 @@ function Modal({
             </button>
             <button
               type="submit"
-              disabled={isSubmitting || !email}
+              disabled={isSubmitting || !email || !termsAccepted}
               className="rounded-[14px] border border-[rgba(229,106,54,.35)] bg-[linear-gradient(135deg,#e56a36,#ff8a4c)] px-3.5 py-3 text-sm font-extrabold text-white shadow-primary-btn hover:shadow-primary-btn-hover disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isSubmitting ? "..." : t.submit}

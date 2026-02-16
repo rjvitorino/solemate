@@ -94,6 +94,8 @@ export const translations = {
     footer: {
       tagline: "Find your sole mate",
       note: "Inclusive language • Privacy-first • No medical data",
+      terms: "Terms & Conditions",
+      privacy: "Privacy Policy",
     },
     modal: {
       title: "Request early access",
@@ -106,6 +108,11 @@ export const translations = {
       aliasHelper: "Public name visible on your profile.",
       submit: "Request access",
       success: "You're on the list. We'll email you when access opens.",
+      termsConsentPrefix: "I agree to the ",
+      termsConsentAnd: "and",
+      termsConsentSuffix: ". SoleMate will only contact me about my account and early access.",
+      termsLink: "Terms & Conditions",
+      privacyLink: "Privacy Policy",
       close: "Close",
       sideRight: "Right",
       sideLeft: "Left",
@@ -220,6 +227,8 @@ export const translations = {
     footer: {
       tagline: "Encontra o teu par",
       note: "Linguagem inclusiva • Privacidade em primeiro • Sem dados médicos",
+      terms: "Termos e Condições",
+      privacy: "Política de Privacidade",
     },
     modal: {
       title: "Pede acesso antecipado",
@@ -232,6 +241,11 @@ export const translations = {
       aliasHelper: "Nome público visível no perfil.",
       submit: "Pedir acesso",
       success: "Estás na lista. Enviaremos um email quando o acesso abrir.",
+      termsConsentPrefix: "Concordo com os ",
+      termsConsentAnd: "e a",
+      termsConsentSuffix: ". A SoleMate só me vai contactar sobre a minha conta e acesso antecipado.",
+      termsLink: "Termos e Condições",
+      privacyLink: "Política de Privacidade",
       close: "Fechar",
       sideRight: "Direito",
       sideLeft: "Esquerdo",
