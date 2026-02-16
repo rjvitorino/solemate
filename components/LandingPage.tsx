@@ -467,14 +467,12 @@ export function LandingPage() {
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-center border-t border-[rgba(15,23,42,.08)] bg-[rgba(255,255,255,.55)] px-4 py-3">
-                    <button
-                      type="button"
-                      onClick={openModal}
-                      className="inline-flex h-12 w-full items-center justify-center gap-2.5 rounded-2xl border border-[rgba(229,106,54,.35)] bg-[linear-gradient(135deg,#e56a36,#ff8a4c)] px-6 text-base font-extrabold text-white shadow-primary-btn transition-shadow hover:shadow-primary-btn-hover sm:w-auto"
-                    >
-                      {t.matchCard.tryIt}
-                    </button>
+                  <div className="border-t border-[rgba(15,23,42,.08)] bg-[rgba(255,255,255,.55)] px-4 py-3">
+                    <div className="flex flex-col items-center gap-1 text-center">
+                      <p className="text-sm font-black text-navy">{t.matchCard.matchConfirmed}</p>
+                      <p className="text-xs font-semibold text-[rgba(12,15,20,.75)]">{t.matchCard.matchDetails}</p>
+                      <p className="mt-0.5 text-[11px] font-medium text-[rgba(12,15,20,.60)]">{t.matchCard.matchSummary}</p>
+                    </div>
                   </div>
                 </div>
               </div>
