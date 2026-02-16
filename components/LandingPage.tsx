@@ -59,7 +59,7 @@ export function LandingPage() {
   return (
     <>
       <nav
-        className="sticky top-0 z-50 border-b border-[rgba(15,23,42,.08)] bg-[rgba(251,246,238,.70)] backdrop-blur-[10px]"
+        className="sticky top-0 z-50 border-b border-[rgba(15,23,42,.08)] bg-[rgba(251,246,238,.70)] backdrop-blur-[10px] dark:border-[rgba(15,23,42,.18)] dark:bg-[rgba(251,246,238,.95)]"
         aria-label="Primary"
       >
         <div className="mx-auto flex min-w-0 max-w-content items-center justify-between px-5 py-3.5 [width:min(1120px,calc(100%-40px))]">
@@ -122,12 +122,12 @@ export function LandingPage() {
             </button>
           </div>
 
-          {/* Mobile: hamburger */}
+          {/* Mobile: hamburger — brand orange for visibility in light and dark mode */}
           <div className="flex items-center gap-2.5 md:hidden">
             <button
               type="button"
               onClick={() => setMenuOpen((o) => !o)}
-              className="flex h-10 w-10 items-center justify-center rounded-[14px] border border-[rgba(15,23,42,.10)] bg-[rgba(15,23,42,.06)] text-navy transition-colors hover:bg-[rgba(15,23,42,.10)]"
+              className="flex h-10 w-10 items-center justify-center rounded-[14px] border border-[rgba(15,23,42,.10)] bg-[rgba(15,23,42,.06)] text-brand transition-colors hover:bg-[rgba(229,106,54,.12)] dark:border-[rgba(255,255,255,.25)] dark:bg-[rgba(255,255,255,.12)] dark:hover:bg-[rgba(255,255,255,.18)]"
               aria-expanded={menuOpen}
               aria-label={menuOpen ? "Close menu" : "Open menu"}
             >
@@ -158,7 +158,7 @@ export function LandingPage() {
         {/* Mobile menu dropdown */}
         <div
           className={cn(
-            "overflow-hidden border-t border-[rgba(15,23,42,.08)] bg-[rgba(251,246,238,.95)] backdrop-blur-[10px] transition-[max-height,opacity] duration-200 ease-out md:hidden",
+            "overflow-hidden border-t border-[rgba(15,23,42,.08)] bg-[rgba(251,246,238,.95)] backdrop-blur-[10px] transition-[max-height,opacity] duration-200 ease-out dark:border-[rgba(15,23,42,.18)] dark:bg-[rgba(251,246,238,.98)] md:hidden",
             menuOpen ? "max-h-[360px] opacity-100" : "max-h-0 opacity-0"
           )}
           aria-hidden={!menuOpen}
