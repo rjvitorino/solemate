@@ -12,6 +12,10 @@ export const metadata: Metadata = {
   title: "SoleMate — Find your other half",
   description:
     "Match by shoe size, side, and style. Split the pair, share the cost, waste less.",
+  icons: {
+    icon: "/icon.svg",
+    apple: "/apple-icon.png",
+  },
 };
 
 export default function RootLayout({
