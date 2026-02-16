@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --paper: #fbf6ee;
+    --paper-2: #fffaf3;
+    --navy: #0c1520;
+    --brand: #e56a36;
+    --brand-2: #ff8a4c;
+  }
+  body {
+    @apply text-navy antialiased;
+    background:
+      radial-gradient(1200px 600px at 70% -10%, rgba(229, 106, 54, 0.18), transparent 55%),
+      radial-gradient(900px 500px at 10% 10%, rgba(15, 23, 42, 0.14), transparent 60%),
+      linear-gradient(180deg, var(--paper) 0%, var(--paper-2) 60%, #ffffff 100%);
+    min-height: 100%;
+  }
+}
+
+/* Sheen animation on brand mark */
+@keyframes sheen {
+  0%,
+  40% {
+    transform: translateX(-30%) rotate(20deg);
+    opacity: 0;
+  }
+  55% {
+    opacity: 1;
+  }
+  70% {
+    transform: translateX(35%) rotate(20deg);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.brand-mark-sheen::before {
+  content: "";
+  position: absolute;
+  inset: -30%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.35),
+    rgba(255, 255, 255, 0)
+  );
+  transform: rotate(20deg);
+  animation: sheen 6.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-mark-sheen::before {
+    animation: none;
+  }
+}
+
+/* Accordion expand/collapse */
+@keyframes accordion-down {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+    opacity: 1;
+  }
+}
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+    opacity: 1;
+  }
+  to {
+    height: 0;
+    opacity: 0;
+  }
+}
+.animate-accordion-down {
+  animation: accordion-down 0.25s ease-out;
+}
+.animate-accordion-up {
+  animation: accordion-up 0.25s ease-out;
+}
