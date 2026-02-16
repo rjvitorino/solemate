@@ -116,7 +116,7 @@ export function LandingPage() {
             <button
               type="button"
               onClick={openModal}
-              className="inline-flex h-12 items-center justify-center gap-2.5 rounded-2xl border border-[rgba(229,106,54,.35)] bg-[linear-gradient(135deg,#e56a36,#ff8a4c)] px-6 text-base font-extrabold text-white shadow-primary-btn transition-shadow hover:shadow-primary-btn-hover"
+              className="inline-flex h-12 min-w-[140px] items-center justify-center gap-2.5 rounded-2xl border border-[rgba(229,106,54,.35)] bg-[linear-gradient(135deg,#e56a36,#ff8a4c)] px-6 text-base font-extrabold text-white shadow-primary-btn transition-shadow hover:shadow-primary-btn-hover"
             >
               {t.nav.getStarted}
             </button>
@@ -216,7 +216,7 @@ export function LandingPage() {
             <button
               type="button"
               onClick={openModal}
-              className="mt-1 w-full h-12 rounded-2xl border border-[rgba(229,106,54,.35)] bg-[linear-gradient(135deg,#e56a36,#ff8a4c)] px-6 text-base font-extrabold text-white shadow-primary-btn transition-shadow hover:shadow-primary-btn-hover"
+              className="mt-1 w-full h-12 min-w-[140px] rounded-2xl border border-[rgba(229,106,54,.35)] bg-[linear-gradient(135deg,#e56a36,#ff8a4c)] px-6 text-base font-extrabold text-white shadow-primary-btn transition-shadow hover:shadow-primary-btn-hover"
             >
               {t.nav.getStarted}
             </button>
