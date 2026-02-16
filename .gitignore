@@ -1,0 +1,40 @@
+# Node / Next.js / TypeScript
+node_modules
+.next
+.turbo
+dist
+out
+
+# Env & secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+logs
+*.log
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.idea
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+
+# Coverage / tests
+coverage
+.nyc_output
+
+# Misc
+.vercel
+.next-turbo
+
+node_modules
