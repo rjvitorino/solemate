@@ -37,6 +37,9 @@ export const translations = {
       matchKeySize: "EU 42",
       matchKeySide: "Left ↔ Right",
       matchKeyLocation: "Coimbra",
+      matchConfirmed: "Match confirmed",
+      matchDetails: "Size 42 • Left ↔ Right",
+      matchSummary: "Same size. Same region. Same style.",
     },
     chips: {
       coimbra: "Coimbra",
@@ -89,7 +92,7 @@ export const translations = {
       ],
     },
     footer: {
-      tagline: "Find your other half",
+      tagline: "Find your sole mate",
       note: "Inclusive language • Privacy-first • No medical data",
     },
     modal: {
@@ -160,6 +163,9 @@ export const translations = {
       matchKeySize: "EU 42",
       matchKeySide: "Esquerdo ↔ Direito",
       matchKeyLocation: "Coimbra",
+      matchConfirmed: "Par confirmado",
+      matchDetails: "Tamanho 42 • Esquerdo ↔ Direito",
+      matchSummary: "Mesmo tamanho. Mesma região. Mesmo estilo.",
     },
     chips: {
       coimbra: "Coimbra",
@@ -212,7 +218,7 @@ export const translations = {
       ],
     },
     footer: {
-      tagline: "Encontra a tua metade",
+      tagline: "Encontra o teu par",
       note: "Linguagem inclusiva • Privacidade em primeiro • Sem dados médicos",
     },
     modal: {
