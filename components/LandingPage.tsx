@@ -95,7 +95,7 @@ export function LandingPage() {
               role="tablist"
               aria-label="Language"
             >
-              {(["en", "pt"] as const).map((loc) => (
+              {(["pt", "en"] as const).map((loc) => (
                 <button
                   key={loc}
                   type="button"
@@ -194,7 +194,7 @@ export function LandingPage() {
                 role="tablist"
                 aria-label="Language"
               >
-                {(["en", "pt"] as const).map((loc) => (
+                {(["pt", "en"] as const).map((loc) => (
                   <button
                     key={loc}
                     type="button"
