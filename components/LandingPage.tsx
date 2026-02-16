@@ -99,7 +99,7 @@ export function LandingPage() {
             <button
               type="button"
               onClick={openModal}
-              className="inline-flex items-center justify-center gap-2.5 rounded-[14px] border border-[rgba(229,106,54,.35)] bg-[linear-gradient(135deg,#e56a36,#ff8a4c)] px-3.5 py-3 text-sm font-extrabold text-white shadow-primary-btn transition-shadow duration-150 hover:shadow-primary-btn-hover"
+              className="inline-flex h-12 items-center justify-center gap-2.5 rounded-2xl border border-[rgba(229,106,54,.35)] bg-[linear-gradient(135deg,#e56a36,#ff8a4c)] px-6 text-base font-extrabold text-white shadow-primary-btn transition-shadow hover:shadow-primary-btn-hover"
             >
               {t.nav.getStarted}
             </button>
@@ -199,7 +199,7 @@ export function LandingPage() {
             <button
               type="button"
               onClick={openModal}
-              className="mt-1 w-full rounded-[14px] border border-[rgba(229,106,54,.35)] bg-[linear-gradient(135deg,#e56a36,#ff8a4c)] px-3.5 py-3 text-sm font-extrabold text-white shadow-primary-btn"
+              className="mt-1 w-full h-12 rounded-2xl border border-[rgba(229,106,54,.35)] bg-[linear-gradient(135deg,#e56a36,#ff8a4c)] px-6 text-base font-extrabold text-white shadow-primary-btn transition-shadow hover:shadow-primary-btn-hover"
             >
               {t.nav.getStarted}
             </button>
@@ -227,21 +227,40 @@ export function LandingPage() {
                 }}
                 aria-hidden
               />
-              <h1 className="relative z-10 mt-2.5 text-[clamp(38px,4.7vw,62px)] font-black leading-[0.98] tracking-[-1.2px] text-navy break-words">
-                {t.hero.findYour}{" "}
-                <span className="bg-gradient-to-br from-brand to-[#f39b6a] bg-clip-text text-transparent">
-                  {t.hero.soleMate}
-                </span>
-                {t.hero.punch ? (
+              <h1 className="relative z-10 mt-2.5 text-[clamp(38px,4.7vw,62px)] font-black leading-[0.98] tracking-[-1.2px] text-navy">
+                {t.hero.soleMate && t.hero.soleMate.length > 0 ? (
                   <>
-                    .
-                    <br />
-                    {t.hero.punch}
+                    <span className="block">{t.hero.findYour}</span>
+                    <span className="block bg-gradient-to-br from-brand to-[#f39b6a] bg-clip-text text-transparent">
+                      {t.hero.soleMate}
+                      {t.hero.punch ? (
+                        <>
+                          .
+                          <br />
+                          {t.hero.punch}
+                        </>
+                      ) : (
+                        "."
+                      )}
+                    </span>
                   </>
                 ) : (
-                  "."
+                  <>
+                    {t.hero.findYour}
+                    {t.hero.punch ? (
+                      <>
+                        <br />
+                        {t.hero.punch}
+                      </>
+                    ) : null}
+                  </>
                 )}
               </h1>
+              {t.hero.subheadline && (
+                <p className="relative z-10 mt-3 text-[15px] font-semibold text-[rgba(12,15,20,.75)]">
+                  {t.hero.subheadline}
+                </p>
+              )}
               <p className="relative z-10 mt-4 max-w-[54ch] text-base text-[rgba(12,15,20,.80)] whitespace-pre-line">
                 {t.hero.sub}
               </p>
@@ -250,7 +269,7 @@ export function LandingPage() {
                   {t.hero.microline}
                 </p>
               )}
-              <div className="relative z-10 mt-6 flex flex-wrap gap-2.5">
+              <div className="relative z-10 mt-6">
                 <button
                   type="button"
                   onClick={openModal}
@@ -258,12 +277,6 @@ export function LandingPage() {
                 >
                   {t.hero.createProfile}
                 </button>
-                <a
-                  href="#how"
-                  className="inline-flex h-12 w-full items-center justify-center gap-2.5 rounded-2xl border border-[rgba(15,23,42,.14)] bg-white px-6 text-base font-extrabold shadow-nav-btn transition-[transform,box-shadow] duration-150 hover:-translate-y-px hover:shadow-nav-btn-hover sm:w-auto"
-                >
-                  {t.hero.seeHow}
-                </a>
               </div>
               <p className="relative z-10 mt-4 text-[13px] text-[rgba(12,15,20,.65)]">
                 {t.hero.privacyLine}
@@ -520,17 +533,10 @@ export function LandingPage() {
         {/* Meet other SoleMates */}
         <section id="meet" className="py-11">
           <div className="relative overflow-hidden rounded-[34px] border border-[rgba(15,23,42,.10)] p-5 shadow-museum bg-white/60">
-            <div className="mb-4 flex flex-wrap items-end justify-between gap-4">
+            <div className="mb-4">
               <h3 className="text-[22px] font-black tracking-tight text-navy">
                 {t.meet.title}
               </h3>
-              <button
-                type="button"
-                onClick={openModal}
-                className="inline-flex h-12 w-full items-center justify-center gap-2.5 rounded-2xl border border-[rgba(229,106,54,.35)] bg-[linear-gradient(135deg,#e56a36,#ff8a4c)] px-6 text-base font-extrabold text-white shadow-primary-btn transition-shadow hover:shadow-primary-btn-hover sm:w-auto"
-              >
-                {t.meet.createFirst}
-              </button>
             </div>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4" aria-label="Profile previews">
               {[
